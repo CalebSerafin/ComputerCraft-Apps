@@ -8,7 +8,7 @@ local tmpDir = "/tmp-CalebSerafin-ComputerCraft-Apps-MinedChunks"
 local appsDir = "/apps"
 
 local function install(name) --Start with "/folderName"
-  if fs.isDir(tmpDir.."/DevTools") then
+  if fs.isDir(tmpDir..name) then
     print("Installing "..name.."...")
     if fs.isDir(appsDir..name) then
       fs.delete(appsDir..name)
@@ -32,6 +32,4 @@ end
 
 print("Deleting "..tmpDir.."...")
 fs.delete(tmpDir)
-print("Deleting self ("..shell.getRunningProgram..")...")
-fs.delete(shell.getRunningProgram)
 print("Done!")
