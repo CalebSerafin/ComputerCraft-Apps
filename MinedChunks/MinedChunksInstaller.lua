@@ -14,10 +14,13 @@ shell.run(appsDir.."/gitget.lua","CalebSerafin","ComputerCraft-Apps","main",tmpD
 
 print("Installing MinedChunks...")
 fs.move(tmpDir.."/MinedChunks",appsDir.."/MinedChunks")
-if devTools then
+if devTools and fs.isDir(tmpDir.."/DevTools") then
   print("Installing DevTools...")
   fs.move(tmpDir.."/DevTools",appsDir.."/DevTools")
 end
 
 print("Deleting "..tmpDir.."...")
 fs.delete(tmpDir)
+print("Deleting self...")
+fs.delete(shell.getRunningProgram)
+print("Done!")
